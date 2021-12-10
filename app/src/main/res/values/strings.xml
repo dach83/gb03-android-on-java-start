@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">gb03-android-on-java-start</string>
+    <string name="welcome_header">Запись в студию красоты</string>
+    <string name="lash_service">Наращивание ресниц</string>
+    <string name="epilation_service">Электроэпиляция</string>
+    <string name="massage_service">Массаж</string>
+    <string name="show_calendar">Выбрать дату</string>
+    <string name="hide_calendar">Скрыть календарь</string>
+    <string name="enable_msg">Оставить сообщение для мастера</string>
+    <string name="hint_msg">Введите сообщение</string>
+    <string name="send_order">Записаться</string>
+    <string name="selected_services">Вы выбрали:</string>
+    <string name="succes_order">Запись подтверждена</string>
 </resources>

@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         msgToMasterSwitch.setOnClickListener(this::msgToMasterSwitchOnClick);
 
         // кнопка "Записаться"
-        sendOrderButton.setOnClickListener((view) -> Toast.makeText(this, R.string.succes_order, Toast.LENGTH_SHORT).show());
+        sendOrderButton.setOnClickListener((view) -> Toast.makeText(this, R.string.success_order, Toast.LENGTH_SHORT).show());
     }
 
     // Обработчик щелчков по checkBox c услугами

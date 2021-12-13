@@ -63,19 +63,19 @@
         android:layout_gravity="center" />
 
     <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/msg_to_master_switch"
+        android:id="@+id/message_to_master_switch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/enable_msg"
         android:theme="@style/MySwitch" />
 
     <EditText
-        android:id="@+id/msg_to_master_edit_text"
-        android:importantForAutofill="no"
+        android:id="@+id/message_to_master_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:enabled="false"
         android:hint="@string/hint_msg"
+        android:importantForAutofill="no"
         android:inputType="text" />
 
     <Button

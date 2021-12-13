@@ -90,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
         selectedServicesTextView = findViewById(R.id.selected_services_text_view);
         showCalendarButton = findViewById(R.id.show_calendar_button);
         calendarView = findViewById(R.id.calendar);
-        messageToMasterSwitch = findViewById(R.id.msg_to_master_switch);
-        messageToMasterEditText = findViewById(R.id.msg_to_master_edit_text);
+        messageToMasterSwitch = findViewById(R.id.message_to_master_switch);
+        messageToMasterEditText = findViewById(R.id.message_to_master_edit_text);
         sendOrderButton = findViewById(R.id.send_order_button);
     }
 }

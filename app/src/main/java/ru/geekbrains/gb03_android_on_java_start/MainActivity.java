@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView selectedServicesTextView;
     private ToggleButton showCalendarButton;
     private CalendarView calendarView;
-    private SwitchCompat msgToMasterSwitch;
-    private EditText msgToMasterEditText;
+    private SwitchCompat messageToMasterSwitch;
+    private EditText messageToMasterEditText;
     private Button sendOrderButton;
 
     @Override
@@ -31,52 +31,47 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initViewFields(); // инициализируем ссылки на компоненты активности
+        initViewFields();
+        initServiceCheckBoxes();
+        initCalendar();
+        initMessageToMaster();
+        initSendOrderButton();
+    }
 
-        // обработчики chekBox-ов с услугами
-        for (CheckBox checkBox : serviceCheckBoxes) {
-            checkBox.setOnClickListener(this::servicesCheckBoxOnClick);
-        }
-
-        // видимость календаря
-        showCalendarButton.setChecked(false);
-        setCalendarVisibility(showCalendarButton.isChecked());
-        showCalendarButton.setOnClickListener(this::showCalendarButtonOnClick);
-
-        // сообщение мастеру
-        msgToMasterSwitch.setChecked(false);
-        setMsgToMasterEditTextEnabled(msgToMasterSwitch.isChecked());
-        msgToMasterSwitch.setOnClickListener(this::msgToMasterSwitchOnClick);
-
-        // кнопка "Записаться"
+    private void initSendOrderButton() {
         sendOrderButton.setOnClickListener((view) -> Toast.makeText(this, R.string.success_order, Toast.LENGTH_SHORT).show());
     }
 
-    // Обработчик щелчков по checkBox c услугами
+    private void initMessageToMaster() {
+        messageToMasterSwitch.setChecked(false);
+        changeMessageToMasterEditTextEnabled(messageToMasterSwitch.isChecked());
+        messageToMasterSwitch.setOnClickListener(view -> changeMessageToMasterEditTextEnabled(messageToMasterSwitch.isChecked()));
+    }
+
+    private void initCalendar() {
+        showCalendarButton.setChecked(false);
+        changeCalendarVisibility(showCalendarButton.isChecked());
+        showCalendarButton.setOnClickListener(view -> changeCalendarVisibility(showCalendarButton.isChecked()));
+    }
+
+    private void initServiceCheckBoxes() {
+        for (CheckBox checkBox : serviceCheckBoxes) {
+            checkBox.setOnClickListener(this::servicesCheckBoxOnClick);
+        }
+    }
+
     private void servicesCheckBoxOnClick(View view) {
-        // создаем строку с выбранными услугами
+        // формируем строчку с выбранными услугами
         StringBuilder sb = new StringBuilder(getText(R.string.selected_services));
         for (CheckBox checkBox : serviceCheckBoxes) {
             if (checkBox.isChecked()) {
                 sb.append("\n - ").append(checkBox.getText());
             }
         }
-
         selectedServicesTextView.setText(sb.toString());
     }
 
-    // Обработчик щелчков по ToggleButton
-    private void showCalendarButtonOnClick(View view) {
-        setCalendarVisibility(showCalendarButton.isChecked());
-    }
-
-    // Обработчик щелчков по switch
-    private void msgToMasterSwitchOnClick(View view) {
-        setMsgToMasterEditTextEnabled(msgToMasterSwitch.isChecked());
-    }
-
-    // Показываем/прячем календарь
-    private void setCalendarVisibility(boolean show) {
+    private void changeCalendarVisibility(boolean show) {
         if (show) {
             calendarView.setVisibility(View.VISIBLE);
         } else {
@@ -84,21 +79,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Разрешаем/запрещаем ввод текста
-    private void setMsgToMasterEditTextEnabled(boolean enabled) {
-        msgToMasterEditText.setEnabled(enabled);
+    private void changeMessageToMasterEditTextEnabled(boolean enabled) {
+        messageToMasterEditText.setEnabled(enabled);
     }
 
-    // Инициализация вьюшек
     private void initViewFields() {
         serviceCheckBoxes.add(findViewById(R.id.lash_check_box));
         serviceCheckBoxes.add(findViewById(R.id.epilation_check_box));
         serviceCheckBoxes.add(findViewById(R.id.massage_check_box));
         selectedServicesTextView = findViewById(R.id.selected_services_text_view);
-        showCalendarButton = findViewById(R.id.show_calendar_btn);
+        showCalendarButton = findViewById(R.id.show_calendar_button);
         calendarView = findViewById(R.id.calendar);
-        msgToMasterSwitch = findViewById(R.id.msg_to_master_switch);
-        msgToMasterEditText = findViewById(R.id.msg_to_master_edit_text);
-        sendOrderButton = findViewById(R.id.send_order_btn);
+        messageToMasterSwitch = findViewById(R.id.msg_to_master_switch);
+        messageToMasterEditText = findViewById(R.id.msg_to_master_edit_text);
+        sendOrderButton = findViewById(R.id.send_order_button);
     }
 }

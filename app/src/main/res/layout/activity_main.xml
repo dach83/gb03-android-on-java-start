@@ -48,7 +48,7 @@
             tools:text="@string/selected_services" />
 
         <ToggleButton
-            android:id="@+id/show_calendar_btn"
+            android:id="@+id/show_calendar_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -63,22 +63,23 @@
         android:layout_gravity="center" />
 
     <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/msg_to_master_switch"
+        android:id="@+id/message_to_master_switch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/enable_msg"
         android:theme="@style/MySwitch" />
 
     <EditText
-        android:id="@+id/msg_to_master_edit_text"
+        android:id="@+id/message_to_master_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:enabled="false"
         android:hint="@string/hint_msg"
+        android:importantForAutofill="no"
         android:inputType="text" />
 
     <Button
-        android:id="@+id/send_order_btn"
+        android:id="@+id/send_order_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"

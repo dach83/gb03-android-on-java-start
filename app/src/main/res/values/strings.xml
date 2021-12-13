@@ -10,5 +10,5 @@
     <string name="hint_msg">Введите сообщение</string>
     <string name="send_order">Записаться</string>
     <string name="selected_services">Вы выбрали:</string>
-    <string name="succes_order">Запись подтверждена</string>
+    <string name="success_order">Запись подтверждена</string>
 </resources>
